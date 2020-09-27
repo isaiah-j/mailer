@@ -4,7 +4,7 @@ const app = express()
 
 app.use(express.json())
 
-app.get('/', () => {
+app.get('/', (req, res, next) => {
     res.status(200).json({
         api: 'up'
     })
@@ -12,7 +12,7 @@ app.get('/', () => {
 
 app.post('/contact', async (req, res) => {
     console.log(req.body)
-    try {       
+    try {
         await sendEmail({
             name: req.body.name,
             email: req.body.email,
