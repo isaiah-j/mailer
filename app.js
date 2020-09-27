@@ -4,6 +4,11 @@ const app = express()
 
 app.use(express.json())
 
+app.get('/', () => {
+    res.status(200).json({
+        api: 'up'
+    })
+})
 
 app.post('/contact', async (req, res) => {
     console.log(req.body)
